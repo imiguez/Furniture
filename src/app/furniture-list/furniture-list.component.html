@@ -9,11 +9,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="furniture.image" alt="furniture.name"></td>
+        <tr *ngFor="let furniture of furnitures" [ngClass]="{'offer':furniture.offer}">
+            <td><img [src]="furniture.image" [alt]="furniture.name"></td>
             <td>{{furniture.name}}</td>
             <td>{{furniture.type}}</td>
-            <td>{{furniture.price}}</td>
+            <td>{{furniture.price | currency}}</td>
             <td>{{furniture.stock}}</td>
         </tr>
     </tbody>
