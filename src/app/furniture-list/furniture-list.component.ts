@@ -16,22 +16,25 @@ export class FurnitureListComponent implements OnInit {
       "stock" : 25,
       "image" : "assets/img/East Lake 1 Drawer.jpg",
       "offer" : true,
+      "quantity" : 0,
     },
     {
       "name" : "East Lake 1 Drawer",
       "type" : "Nightstand",
       "price" : 499.99,
-      "stock" : 25,
+      "stock" : 3,
       "image" : "assets/img/East Lake 1 Drawer.jpg",
       "offer" : false,
+      "quantity" : 0,
     },
     {
       "name" : "East Lake 1 Drawer",
       "type" : "Nightstand",
       "price" : 499.99,
-      "stock" : 25,
+      "stock" : 0,
       "image" : "assets/img/East Lake 1 Drawer.jpg",
       "offer" : true,
+      "quantity" : 0,
     },
   ];
 
@@ -40,4 +43,15 @@ export class FurnitureListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upQuantity(furniture: Furniture): void {
+    if(furniture.quantity < furniture.stock) {
+      furniture.quantity++;
+    }
+  }
+
+  downQuantity(furniture: Furniture): void {
+    if (furniture.quantity > 0){
+      furniture.quantity--;
+    }
+  }
 }

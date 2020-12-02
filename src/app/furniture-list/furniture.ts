@@ -4,5 +4,6 @@ export interface Furniture {
     "price" : number,
     "stock" : number,
     "image" : string,
-    "offer" : boolean
+    "offer" : boolean,
+    "quantity" : number,
 }

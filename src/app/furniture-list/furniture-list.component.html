@@ -6,15 +6,22 @@
             <th>Tipo</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Agregar Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let furniture of furnitures" [ngClass]="{'offer':furniture.offer}">
-            <td><img [src]="furniture.image" [alt]="furniture.name"></td>
+            <td><img width="100px" class="img-thumbnail" [src]="furniture.image" [alt]="furniture.name"></td>
             <td>{{furniture.name}}</td>
             <td>{{furniture.type}}</td>
             <td>{{furniture.price | currency}}</td>
-            <td>{{furniture.stock}}</td>
+            <td *ngIf="furniture.stock <= 0">SIN STOCK</td>
+            <td *ngIf="furniture.stock > 0">{{furniture.stock}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="downQuantity(furniture)">-</button>
+                <input type="number" [(ngModel)]="furniture.quantity">
+                <button class="btn btn-primary btn-sm"  (click)="upQuantity(furniture)">+</button>
+            </td>
         </tr>
     </tbody>
 </table>
