@@ -2,8 +2,11 @@ img {
     width: 120px;
 }
 th, td {
-    text-align: center;
+    vertical-align: middle;
 }
 .offer {
     background-color: rgba(0, 128, 0, 0.582);
+}
+#furniture-number {
+    max-width: 40px;
 }

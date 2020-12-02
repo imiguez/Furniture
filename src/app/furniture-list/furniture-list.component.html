@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -19,7 +19,7 @@
             <td *ngIf="furniture.stock > 0">{{furniture.stock}}</td>
             <td>
                 <button class="btn btn-primary btn-sm" (click)="downQuantity(furniture)">-</button>
-                <input type="number" [(ngModel)]="furniture.quantity">
+                <input type="number" [(ngModel)]="furniture.quantity"  id="furniture-number">
                 <button class="btn btn-primary btn-sm"  (click)="upQuantity(furniture)">+</button>
             </td>
         </tr>
