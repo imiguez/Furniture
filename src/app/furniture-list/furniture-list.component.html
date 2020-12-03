@@ -18,9 +18,8 @@
             <td *ngIf="furniture.stock <= 0">SIN STOCK</td>
             <td *ngIf="furniture.stock > 0">{{furniture.stock}}</td>
             <td>
-                <button class="btn btn-primary btn-sm" (click)="downQuantity(furniture)">-</button>
-                <input type="number" [(ngModel)]="furniture.quantity"  id="furniture-number">
-                <button class="btn btn-primary btn-sm"  (click)="upQuantity(furniture)">+</button>
+                <app-input-integer [(quantity)]="furniture.quantity" [max]="furniture.stock" (maxReached)="isMaxReached($event)"></app-input-integer>
+                Cant: {{furniture.quantity}}
             </td>
         </tr>
     </tbody>

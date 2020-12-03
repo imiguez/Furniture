@@ -43,15 +43,9 @@ export class FurnitureListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upQuantity(furniture: Furniture): void {
-    if(furniture.quantity < furniture.stock) {
-      furniture.quantity++;
-    }
+  isMaxReached(event) {
+    if (event)
+    alert("No hay mas stock");
   }
 
-  downQuantity(furniture: Furniture): void {
-    if (furniture.quantity > 0){
-      furniture.quantity--;
-    }
-  }
 }
