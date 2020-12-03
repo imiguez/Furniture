@@ -20,6 +20,7 @@
             <td>
                 <app-input-integer [(quantity)]="furniture.quantity" [max]="furniture.stock" (maxReached)="isMaxReached($event)"></app-input-integer>
                 Cant: {{furniture.quantity}}
+                <button class="btn" (click)="addToCart(furniture)">Agregar</button>
             </td>
         </tr>
     </tbody>

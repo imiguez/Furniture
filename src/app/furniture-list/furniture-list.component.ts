@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FurnitureCartService } from '../furniture-cart.service';
 import { Furniture } from './furniture';
 
 @Component({
@@ -19,7 +20,7 @@ export class FurnitureListComponent implements OnInit {
       "quantity" : 0,
     },
     {
-      "name" : "East Lake 1 Drawer",
+      "name" : "PEPE",
       "type" : "Nightstand",
       "price" : 499.99,
       "stock" : 3,
@@ -29,7 +30,7 @@ export class FurnitureListComponent implements OnInit {
     },
     {
       "name" : "East Lake 1 Drawer",
-      "type" : "Nightstand",
+      "type" : "PEPE",
       "price" : 499.99,
       "stock" : 0,
       "image" : "assets/img/East Lake 1 Drawer.jpg",
@@ -38,9 +39,17 @@ export class FurnitureListComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+
+  constructor(private cart: FurnitureCartService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  addToCart(furniture): void {
+    this.cart.addToCart(furniture);
+    furniture.stock -= furniture.quantity;
+    furniture.quantity = 0;
   }
 
   isMaxReached(event) {
