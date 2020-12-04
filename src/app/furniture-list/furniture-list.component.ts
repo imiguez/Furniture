@@ -10,8 +10,7 @@ import { Furniture } from './furniture';
 })
 export class FurnitureListComponent implements OnInit {
 
-  furnitures: Furniture[] = [];
-  /*[
+  furnitures: Furniture[] = [
     {
       "name" : "East Lake 1 Drawer",
       "type" : "Nightstand",
@@ -39,14 +38,15 @@ export class FurnitureListComponent implements OnInit {
       "offer" : true,
       "quantity" : 0,
     },
-  ];*/
+  ];
 
 
   constructor(private cart: FurnitureCartService, private furnitureDataService: FurnitureDataService) {
   }
 
   ngOnInit(): void {
-    this.furnitureDataService.getAll().subscribe(f => this.furnitures = f);
+    //this.furnitureDataService.getAll().subscribe(f => this.furnitures = f); 
+    // Dejo por defecto que se cargue el mock para una mejor presentacion visual
   }
 
   addToCart(furniture): void {
